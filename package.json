@@ -1,0 +1,39 @@
+{
+  "name": "richpanel-test",
+  "version": "0.0.0",
+  "description": "Twitter help desk",
+  "keywords": [
+    "example",
+    "express",
+    "passport"
+  ],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Pramod Mahato",
+  "license": "Unlicense",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-ensure-login": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "firebase": "^7.15.5",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-twitter": "^1.0.4",
+    "socket.io": "^2.3.0",
+    "twitter": "^1.7.1",
+    "twitter-mentions": "^3.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "RichPanel - Twitter Helpdesk",
+  "description": "Twitter Help Desk",
+  "repository": "",
+  "keywords": [ "twitter", "login" ],
+  "env": {
+    "TWITTER_CONSUMER_KEY": {
+      "description": "A string used to identify this app with Twitter."
+    },
+    "TWITTER_CONSUMER_SECRET": {
+      "description": "A secret used to authenticate this app with Twitter."
+    }
+  }
+}

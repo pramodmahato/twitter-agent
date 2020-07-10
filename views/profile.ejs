@@ -1,0 +1,188 @@
+
+        
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RichPanel</title>
+  <link type="text/css" href="/static/style.css" rel="stylesheet">
+  <script src="/static/main.js"></script>
+  <script src="https://kit.fontawesome.com/1f2f41323d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha512-v8ng/uGxkge3d1IJuEo6dJP8JViyvms0cly9pnbfRxT6/31c3dRWxIiwGnMSWwZjHKOuY3EVmijs7k1jz/9bLA==" crossorigin="anonymous"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script>
+var selectedTweetId;
+  firebase.initializeApp(firebaseConfig);
+  var database = firebase.database();
+  var tweetsRef = firebase.database().ref('tweets/'+ <%= user.id %>);
+  tweetsRef.on("child_added", function(snapshot){
+    let x=snapshot.val()
+    allData.push(x)
+    addItem(x)
+});
+
+  var socket = io.connect('https://richpanel.herokuapp.com'); 
+
+  function reply(){
+    let msg=document.getElementById('msg_text').value+' @'+document.getElementById('chatname').innerHTML
+
+    addChat('/static/user.png',msg,Date.now(),'reply')
+    socket.emit('reply', { msg: msg, id: selectedTweetId }); 
+  }
+  socket.on('failed',(data)=>{
+    console.log(data.error)
+    alert(data.error[0].message)
+    
+  })
+  socket.on('success',(data)=>{
+    console.log(data)
+    alert('Reply sent successfully')
+  })
+ 
+  
+</script>
+
+</head>
+<body>
+<div class="nav" style="">
+
+    <div class="items" style="margin-top: 20px;padding-left: 15px !important"><img src="/static/logo.png" height="30px"></div>
+    <br>
+    <br>
+    <div class="items"><i class="fa fa-clock-o" aria-hidden="true" style="size: 200px;"></i></div>
+    <div class="items"><i class="fa fa-home" aria-hidden="true"></i></div>
+    <div class="items"><i class="fa fa-users" aria-hidden="true"></i></div>
+    <div class="items"><i class="fa fa-comments" aria-hidden="true"></i></div>
+    <div class="items"><i class="fa fa-credit-card" aria-hidden="true"></i></div>
+    <div class="items"><i class="fa fa-store" aria-hidden="true"></i></div>
+
+<div class="bottom">
+  <div class="items"><i class="fa fa-cog" aria-hidden="true"></i></div>
+    <div class="items"><i class="fa fa-users" aria-hidden="true"></i></div>
+</div>
+
+</div>
+<div class="right">
+
+  <section class="header" style="top: 25">
+    <span class="underline">Updates</span>
+    <div class="header-right">
+      <div class="header-right-item">
+        Session: 0 minutes
+      </div>
+      <div class="header-right-item">
+        <%= user.displayName %><a href='/logout'><i class="fa fa-power-off icon"></i></a>
+      </div>
+    </div>
+  </section><br>
+  <section class="main">
+    <h1 style="color: black;float: left">Conversations</h1>
+    <div style="max-width:400px;margin:20px 10px 10px 30px;float: left;"> 
+    <div class="input-icons">  
+            <i class="fa fa-search icon"></i> 
+            <input class="input-field" type="text" placeholder="Quick search"> 
+        </div> 
+      </div>
+      <div style="max-width:400px;margin:20px 0px 0px 10px;float: left;"> 
+    <div class="input-icons online">  
+            <i class="fa fa-filter icon"></i> 
+            <button class="input-field btn" text="Filter"> Filter </button>
+        </div> 
+      </div>
+      <div style="max-width:400px;margin-right: 100px;float: right;"> 
+    <div class="input-icons online">  
+            <i class="fa fa-circle icon green" style="color: #19bb19;"></i> 
+            <button class="input-field btn" text="Filter"> Online </button>
+        </div> 
+      </div>
+  </section ><br>
+  <section style="margin-top: 60px;">
+   <div class="parent" id="parent">
+      
+   </div>
+   <div class="chat-window">
+     <div class="conversation-window">
+       <section class="chat-header" style="padding-bottom: 5px;">
+         <div style="padding: 5px 5px 5px 25px;float: left;">
+           <img src="/static/user.png" height="25px" width="25px" style="border-radius: 50%;" id='chatimage1'>
+         </div>
+         <span style="float: left;padding-top: 5px;"><label id='chatname'></label></span>
+        <span style="float: left;padding: 5px 5px 5px 70px;" class="date"><label id='chatdate'></label></span>
+        <button class="input-field btn btn-task" text="Create Task" style="margin-left:20px;padding-top: 5px;margin-top: 5px;"> Create Task </button>
+       </section>
+       <hr style="color:#e6e4e4 ">
+       <table class="chats-table" id='chattable'>
+
+       </table>
+       <div class="reply">
+        <table class="chats-table">
+        <tr>
+          <td><img src="/static/user.png" class="chats-img"></td>
+          <td class="chats-msg textarea" style="width: 78%;" ><textarea style="width: 400px;" placeholder="Reply..." id="msg_text"></textarea> </td>
+          <td class="chats-date" style="margin-left: 0px;"><i class="fa fa-paper-plane icon" style="color: grey;cursor:pointer;" onclick="reply()"></i> </td>
+        </tr>
+
+       </table>
+       </div>
+     </div>
+
+     <div class="user-profile">
+       <div style="padding: 95px 95px 10px 95px;" class="imgwa">
+         <img src="/static/user.png" height="90px" width="90px" style="border-radius: 50%;" id='chatimage2'>
+         <label style="color:#37c737;padding: 5px 0px 15px 25px;font-size: 0.8em;">Online</label>
+       </div>
+       <div class="input-icons user-btns uss" style="margin-left:10px;margin-top: 5px;float: left; width: 100px;">  
+            <i class="fa fa-comment icon" style="color: grey;"></i> 
+            <button class="input-field btn " text="Filter" > Text </button>
+
+        </div>
+        <div class="input-icons user-btns" style="margin-left:10px;margin-top: 5px;float: left;width: 100px;">  
+            <i class="fa fa-user icon" style="color: grey;"></i> 
+            <button class="input-field btn" text="Filter" >  Profile </button>
+
+        </div> <br><br>
+        <table style="margin-left: 35px;padding-right: 20px;font-size: 0.8em; width: 90%;">
+        <tr>
+            <td>Name</td>
+            <td class="user-table-right" id='user_name'>Anonymous</td>
+          </tr>
+          <tr>
+            <td>Followers</td>
+            <td class="user-table-right" id='user_followers'>0</td>
+          </tr>
+          
+          <tr>
+            <td>Status Count</td>
+            <td class="user-table-right" id='user_status'>0</td>
+          </tr>
+        </table> 
+        <br><br><br><br><hr color="#cbc6c6">
+          <span class="tasks">Tasks</span>
+          <i class="fa fa-angle-down icon task-icon" ></i>
+          <br>
+          <div style="margin-left: 20px; font-size: 0.8em; color: grey;padding-top: 10px;">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1">&nbsp; Check all tweets</label><br>
+<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+<label for="vehicle2"> &nbsp; Reply to tweets</label><br>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> &nbsp; Check mentions</label><br>
+<br>
+
+<span class="underline" style="color:#cbc6c6 ">ALL TASKS</span>
+          </div>
+       
+     </div>
+
+   </div>
+  </section>
+
+</div>
+</body>
+</html>

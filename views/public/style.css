@@ -1,0 +1,292 @@
+.nav{
+	width: 70px;
+	position:absolute; top:0; left: 0;
+	float: left;
+	background-color: #e7e7e7;
+	height: 100%;
+}
+body{
+	font-family: 'Noto Sans JP', sans-serif;
+
+}
+@media only screen and (min-width: 1200px) {
+        /* styles for browsers larger than 960px; */
+        .btn-task{
+        	margin-left: 20px ;
+        }
+      .date{
+      	margin-left: 130px;
+      }
+  .imgwa{
+  	margin-left: 25px;
+  }
+  .user-btns{
+  	margin-left: 45px;
+  	width: 100px;
+  	padding:2px 2px 2px 2px !important;
+  }
+    }
+@media only screen and (min-width: 960px) {
+        /* styles for browsers larger than 960px; */
+        .date{
+        	margin-left: 80px;
+        }
+        .btn-task{
+        	margin-left: 10px;
+        }
+        .parent{
+  	width:20%;
+  }
+  .chat-window{
+  	width:70%;
+  }
+  .header-right{
+  	margin-right: 40px;
+  }
+  .conversation-window{
+  	width: 68% !important;
+  }
+  .user-profile{
+  	width: 40%;
+  	border-right-color: white !important;
+  }
+  .imgwa{
+  	padding: 30% 30% 30% 30% !important;
+  	padding-bottom: 10px !important;
+  }
+  .user-btns{
+  	
+  	padding:2px 2px 2px 2px;
+  	margin-top: 5px;float: left; width: 70px;
+  }
+    }
+    
+   
+    @media only screen and (max-device-width: 960px) {
+       /* styles for mobile browsers smaller than 480px; (iPhone) */
+
+    .parent{
+  	width:80%;
+  	background-color: yellow;
+  }
+  .date{
+  	padding-left: 20%;
+  }
+.online{
+		display: none;
+	}
+  .chat-window{
+  	width:100%;
+  }
+  .header-right{
+  	margin-right: 50px;
+  }
+  .conversation-window{
+  	width: 100%;
+  }
+    }
+   
+    /* different techniques for iPad screening */
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+      /* For portrait layouts only */
+    }
+
+    @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      /* For landscape layouts only */
+    }
+
+@media screen and (min-width: 1500px) {
+  .btn-task{
+        	margin-left: 20px ;
+        }
+      .date{
+      	margin-left: 150px;
+      }
+  .imgwa{
+  	margin-left: 25px;
+  }
+  .user-btns{
+ 
+  	width: 100px;
+  	padding:2px 2px 2px 2px !important;
+
+  }
+  .uss{
+  	margin-left: 40px !important;
+  }
+  .textarea{
+  	width: 95% !important;
+  }
+  textarea{
+  	width: 95% !important;
+  }
+}
+.right{
+	width: 90%;
+	position: relative;
+	margin-left: 10%;
+	color: #ada7a7;
+	float: left;
+	height: 800px;
+}
+.items{
+	padding: 10px 10px 20px 25px;	
+}
+.items:hover{
+	background-color: #cbc6c6;
+	cursor: pointer;
+}
+.bottom{
+	width: 70px;
+	position:absolute; bottom:0;
+}
+.underline{
+]
+	display:inline-block;
+    border-bottom:1px solid #cbc6c6;
+    padding-bottom:2px;
+    float: left;
+}
+.header-right{
+	font-size: 12px;
+	margin-right: 100px;
+	float: right;
+}
+.header-right-item{
+	font-size: 12px;
+	display: inline-block;
+	padding: 10px 10px 10px 10px
+}
+.main{
+	margin-top: 50px;
+}
+ .input-icons i { 
+            position: absolute; 
+        } 
+          
+.input-icons { 
+            width: 100%; 
+            margin-bottom: 10px; 
+        } 
+        .filter-button { 
+            width: 100%; 
+            margin-bottom: 10px; 
+        }
+          
+.icon { 
+            padding: 8px 0px 20px 10px;
+            min-width: 40px; 
+            size: 5px;
+        } 
+.input-field { 
+	border-radius: 17px;
+            width: 100%; 
+            padding: 10px 0px 4px 0px; 
+            text-align: center; 
+            
+            border: 1px solid #cbc6c6;
+}
+.signin{
+	background-color: #50cc50; margin-left: 70px; color: white; padding-top: 7px;padding-bottom: 7px;
+
+} 
+
+.twitter:hover{
+	background-color: #13d0dc !important;
+}
+.signin:hover{
+	background-color: #11b111;
+	cursor: pointer;
+}
+.btn{
+width: 100px !important;
+}
+.parent{
+	overflow: scroll;
+	float: left;
+	height: 600px;
+}
+.parent-img{
+	border-radius: 50%;
+	float: left;
+	width: 28px;
+	height: 30px;
+}
+.parent-data{
+	margin-left: 40px;
+	float: -left;
+	margin-top: -10px;
+}
+.parent-item{
+	border: 1px solid #cbc6c6;
+	border-radius: 8px;
+	padding: 10px 10px 10px 10px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.chat-window{
+	width: 70%;
+	height: 100%;
+	float: left;
+	margin-left: 20px;
+		border-radius: 10px;
+	border:1px solid #cbc6c6;
+
+}
+.conversation-window{
+	width: 70%;
+	height: 594.5px;
+	float: left;
+	border:1px solid #cbc6c6;
+	border-top-left-radius: 10px;
+	font-size: 0.8em;
+	padding-top: 5px;
+	margin-bottom: 0;
+	bottom: 0;
+}
+.user-profile{
+	width: 29.55%;
+	height: 600px;
+	float: left;
+	border:1px solid #cbc6c6;
+
+}
+.user-table-right{
+	margin-right: 10px;
+	float: right;
+	color: grey;
+}
+.tasks{
+	width: 70%;
+	margin-left: 20px;
+	font-size: 0.8em;
+}
+.task-icon{
+	width: 30%%;
+	float: right;
+}
+.chats-img{
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+}
+.chats-table{
+	padding-left: 20px;
+	padding-top: 10px;
+}
+textarea{
+	padding:5px 5px 5px 5px;
+	border-radius: 10px;
+}
+.chats-msg{
+	width: 80%;
+	padding-left: 0px;
+}
+.chats-date{
+	width: 17%;
+}
+.reply{
+	position: absolute;
+	width: 730px;
+	bottom: 40px;
+}
